@@ -9,7 +9,7 @@ class Generator {
 }
 Generator.prototype.generate = async amount => {
     for (; this.genIndex < amount; ++this.genIndex) {
-        const username = `${uname}_${genIndex}`,
+        const username = `${this.uname}_${this.genIndex}`,
             password = this.pass,
             res = await registerAccount(username, password);
         console.log("Generated account:", res);
