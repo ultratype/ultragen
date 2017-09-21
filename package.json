@@ -1,0 +1,12 @@
+{
+    "name": "ultragen",
+    "description": "Generates NitroType accounts",
+    "license": "MIT",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "clear && node --harmony src/index.js"
+    },
+    "dependencies": {
+        
+    }
+}

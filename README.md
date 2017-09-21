@@ -1,2 +1,2 @@
 # ultragen
-NitroType account generator that works with UltraType++
+Generates NitroType accounts and exports them as UltraType++ config files
