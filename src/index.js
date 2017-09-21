@@ -4,5 +4,6 @@ let init = async () => {
     console.log(res);
 }
 init().catch(e => {
+    console.error('Init exception:');
     console.error(e);
 });
