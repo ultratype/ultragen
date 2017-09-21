@@ -5,12 +5,12 @@ class Generator {
         this.pass = initialPass;
         this.genIndex = 0;
     }
-    generate(amount) {
-        for await (; this.genIndex < amount; ++this.genIndex) {
-            const username = `${uname}_${genIndex}`,
-                    password = this.pass,
-                    res = await registerAccount(username, password);
-        }
+}
+Generator.prototype.generate = async amount => {
+    for (; this.genIndex < amount; ++this.genIndex) {
+        const username = `${uname}_${genIndex}`,
+            password = this.pass,
+            res = await registerAccount(username, password);
     }
 }
 
