@@ -1,4 +1,4 @@
-const registerAccount = require("./request");
+const registerAccount = require("./register");
 class Generator {
     constructor(initialUsername, initialPass, outFile) {
         this.uname = initialUsername;
