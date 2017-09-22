@@ -4,6 +4,23 @@ const http = require('http'),
     NT_HOST = 'www.nitrotype.com',
     NT_PORT = 443,
     NT_REG_PATH = '/api/register',
+    parseData = data => {
+        let res = '';
+        try {
+            res = JSON.parse(data);
+            return res;
+        } catch (e) {
+            if (res.includes('\\')) {
+                res = res.replace(/\\/gi, ''); // Remove all backslashes and retry
+                return parseData(res);
+            } else {
+                return {
+                    'success': false,
+                    'data': '...'
+                }
+            }
+        }
+    },
     request = (user, pass) => {
         return new Promise((resolve, reject) => {
             const req = https.request({
@@ -20,7 +37,7 @@ const http = require('http'),
                 res.on('data', c => data += c);
                 res.on('error', reject); // Auto reject errors
                 res.on('end', () => {
-                    const res = JSON.parse(data);
+                    var res = parseData(data);
                     resolve(res);
                     // The HTTP session has terminated.
                     return;

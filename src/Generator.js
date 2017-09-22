@@ -5,7 +5,7 @@ class Generator {
         this.uname = initialUsername;
         this.pass = initialPass;
         this.genIndex = 0;
-        this.out = outFile;
+        this.outFile = outFile;
     }
 }
 Generator.prototype.generate = async (amount, ctx) => {
