@@ -7,14 +7,13 @@ class Generator {
         this.out = outFile;
     }
 }
-Generator.prototype.generate = async amount => {
+Generator.prototype.generate = async (amount, ctx) => {
     console.log('Generating ' + amount + ' accounts');
-    for (; this.genIndex < amount; ++this.genIndex) {
-        const username = `${this.uname}_${this.genIndex}`,
-            password = this.pass;
-        console.log(username, password);
-        // let res = await registerAccount(username, password);
-        // console.log("Generated account:", res);
+    for (; ctx.genIndex < amount; ++ctx.genIndex) {
+        const username = `${ctx.uname}_${ctx.genIndex}`,
+            password = ctx.pass;
+        let res = await registerAccount(username, password);
+        console.log("Generated account:", res);
     }
 }
 
