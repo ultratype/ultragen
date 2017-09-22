@@ -31,7 +31,8 @@ Generator.prototype.generate = async (amount, ctx) => {
         });
     }
     console.log(`Finished generating ${ctx.genIndex} accounts. Writing file to ${ctx.outFile}...`);
-    fs.writeFile(ctx.outFile, JSON.stringify(configOut), 'utf8', err => {
+    const outData = JSON.stringify(configOut, null, 4);
+    fs.writeFile(ctx.outFile, outData, 'utf8', err => {
         if (err) {
             console.log('Failed to write file:\n${err}');
             return;
