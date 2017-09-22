@@ -1,6 +1,6 @@
 const Generator = require('./Generator'),
     init = async () => {
-        let g = new Generator('processs_', '123asd123', 'out.json');
+        let g = new Generator('ultragen_', '123asd123', 'out.json');
         g.generate(100, g);
     }
 init().catch(e => { // Run init in promise-based context
