@@ -20,7 +20,7 @@ Generator.prototype.generate = async (amount, ctx) => {
         let res = await registerAccount(username, password);
         console.log('Generated accout #' + ctx.genIndex);
         if (!res.success) {
-            console.log(`WARN: falied to successfully create account ${username}.`);
+            console.log(`WARN: falied to successfully create account "${username}", not adding to config.`);
             continue;
         }
         configOut.accounts.push({
