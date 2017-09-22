@@ -1,4 +1,5 @@
-const registerAccount = require("./register");
+const registerAccount = require("./register"),
+    fs = require('fs');
 class Generator {
     constructor(initialUsername, initialPass, outFile) {
         this.uname = initialUsername;
@@ -25,7 +26,15 @@ Generator.prototype.generate = async (amount, ctx) => {
             "accuracy": 0.99
         });
     }
-    console.log(`Finished generating ${ctx.genIndex} accounts.`);
+    console.log(`Finished generating ${ctx.genIndex} accounts. Writing file to ${ctx.outFile}...`);
+    fs.writeFile(ctx.outFile, JSON.stringify(configOut), 'utf8', err => {
+        if (err) {
+            console.log('Failed to write file:\n${err}');
+            return;
+        } else {
+            console.log(`Wrote config file to ${ctx.outFile}.`);
+        }
+    });
 }
 
 module.exports = Generator;
