@@ -21,7 +21,7 @@ Generator.prototype.generate = async (amount, ctx) => {
         console.log('Generated accout #' + ctx.genIndex);
         if (!res.success) {
             console.log(`WARN: falied to successfully create account ${username}.`);
-            return;
+            continue;
         }
         configOut.accounts.push({
             "user": username,
